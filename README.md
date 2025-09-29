@@ -106,14 +106,16 @@ MLOps_game_recommendation_project
 ## 📁 프로젝트 구조
 ```
 .
-├── dags/                           # Airflow DAGs (v1 ~ v6)
-│   ├── game_recommend_mlops_v1.py  # 초기 데이터 수집 + 학습
-│   ├── game_recommend_mlops_v2.py  # 데이터 검증 단계 추가
-│   ├── game_recommend_mlops_v3.py  # 리소스 최적화
-│   ├── game_recommend_mlops_v4.py  # 자동 스케줄링 및 slack 알림 연동
-│   ├── game_recommend_mlops_v5.py  # 검증 + 모니터링 강화
-│   ├── game_recommend_mlops_v6.py  # CI/CD 반영
-│   └── ci-cd.yml                   # Airflow 관련 YAML 설정
+├── Airflow
+│    └──dags/                           # Airflow DAGs (v1 ~ v6)
+│    │  ├── game_recommend_mlops_v1.py  # 초기 데이터 수집 + 학습
+│    │  ├── game_recommend_mlops_v2.py  # 데이터 검증 단계 추가
+│    │  ├── game_recommend_mlops_v3.py  # 리소스 최적화
+│    │  ├── game_recommend_mlops_v4.py  # 자동 스케줄링 및 slack 알림 연동
+│    │  ├── game_recommend_mlops_v5.py  # 검증 + 모니터링 강화
+│    │  ├── game_recommend_mlops_v6.py  # CI/CD 반영
+│    │  └── ci-cd.yml                   # Airflow 관련 YAML 설정
+│    └──yaml
 │
 ├── mlops/
 │   └── src/
