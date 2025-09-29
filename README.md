@@ -104,38 +104,75 @@ MLOps_game_recommendation_project
 <br>
 
 ## 📁 프로젝트 구조
-```
-.
-├── Airflow
-│    └──dags/                           # Airflow DAGs (v1 ~ v6)
-│    │  ├── game_recommend_mlops_v1.py  # 초기 데이터 수집 + 학습
-│    │  ├── game_recommend_mlops_v2.py  # 데이터 검증 단계 추가
-│    │  ├── game_recommend_mlops_v3.py  # 리소스 최적화
-│    │  ├── game_recommend_mlops_v4.py  # 자동 스케줄링 및 slack 알림 연동
-│    │  ├── game_recommend_mlops_v5.py  # 검증 + 모니터링 강화
-│    │  └── game_recommend_mlops_v6.py  # CI/CD 반영
-│    │  
-│    └──yaml
-│        ├── yaml                  
-│        └── ci-cd.yml                   # Airflow 관련 YAML 설정
+<br>
+.```
+├── Airflow/
+│   ├── dags/                           # Airflow DAGs (v1 ~ v6)
+│   │   ├── game_recommend_mlops_v1.py
+│   │   ├── game_recommend_mlops_v2.py
+│   │   ├── game_recommend_mlops_v3.py
+│   │   ├── game_recommend_mlops_v4.py
+│   │   ├── game_recommend_mlops_v5.py
+│   │   └── game_recommend_mlops_v6.py
+│   │
+│   └── yaml/
+│       ├── yaml
+│       └── ci-cd.yml                   # Airflow 관련 YAML 설정
 │
-├── mlops/
+├── opt/                                # 컨테이너 실행 코드 및 환경
+│   ├── .dockerignore
+│   ├── Dockerfile
+│   ├── requirements.txt
+│   │
+│   ├── data-prepare/                   # 데이터 수집 + 전처리
+│   │   ├── .env.template
+│   │   ├── crawler.py
+│   │   ├── main.py
+│   │   ├── processing.py
+│   │   │
+│   │   └── result/
+│   │       ├── game_log.csv
+│   │       └── popular_games.csv
+│   │
+│   └── mlops/                          # 운영용 MLOps 파이프라인
+│       ├── .env.template
+│       │
+│       ├── dataset/
+│       │   └── games_log.csv
+│       │
+│       └── src/
+│           ├── dataset/
+│           ├── evaluate/
+│           ├── inference/
+│           ├── model/
+│           ├── static/
+│           ├── templates/
+│           ├── train/
+│           ├── utils/
+│           │
+│           ├── main.py
+│           └── webapp.py
+│
+├── mlops-research/                     # 연구/실험용 코드 (baseline, prototype)
 │   └── src/
-│       ├── models/                 # 추천 모델 코드
-│       ├── data/                   # 데이터 수집 및 전처리 코드
-│       ├── preprocessing.py        # 데이터 전처리 로직
-│       └── main.py                 # 파이프라인 실행 진입점
+│       ├── models/
+│       ├── data/
+│       ├── preprocessing.py
+│       └── main.py
 │
 ├── .github/workflows/
-│   └── ci-cd.yml                   # GitHub Actions 워크플로우
+│   └── ci.yml                          # GitHub Actions 워크플로우
 │
-├── tests/                          # 유닛 테스트 코드
-├── requirements.txt                # 의존성 패키지 목록
-├── .gitignore                      # GitHub 업로드 제외 파일 설정
-├── .env.example                    # 환경 변수 예시 파일
-└── README.md                       # 프로젝트 설명서
+├── tests/
+│   └── test_utils.py                   # 유닛 테스트 코드
+│
+├── requirements.txt
+├── .gitignore
+├── .env.example
+└── README.md
 ```
 <br>
+
 
 ## 💻​ 구현 기능
 
