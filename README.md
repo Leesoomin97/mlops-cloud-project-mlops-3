@@ -9,9 +9,9 @@ MLOps_game_recommendation_project
 
 🎯 목표
 
-사용자의 게임 플레이 데이터를 기반으로 취향에 맞는 새로운 게임을 추천하는 시스템 구축.
+-사용자의 게임 플레이 데이터를 기반으로 취향에 맞는 새로운 게임을 추천하는 시스템 구축.
 
-데이터 수집부터 모델 학습, 추론, 모니터링, 알림, CI/CD까지 이어지는 엔드 투 엔드(End-to-End) MLOps 파이프라인 구현.
+-데이터 수집부터 모델 학습, 추론, 모니터링, 알림, CI/CD까지 이어지는 엔드 투 엔드(End-to-End) MLOps 파이프라인 구현.
 
 🔧 기술적 특징
 
@@ -33,21 +33,21 @@ MLOps_game_recommendation_project
 
 💡 사용자 관점에서 할 수 있는 것
 
-user_id(1~100)를 입력하면, 해당 사용자가 플레이한 게임과 유사한 게임 목록을 추천받을 수 있음.
+-user_id(1~100)를 입력하면, 해당 사용자가 플레이한 게임과 유사한 게임 목록을 추천받을 수 있음.
 
-추천 결과는 Airflow DAG 실행 후 자동으로 생성되며, Slack 알림으로 결과 확인 가능.
+-추천 결과는 Airflow DAG 실행 후 자동으로 생성되며, Slack 알림으로 결과 확인 가능.
 
-Docker 이미지를 통해 어디서든 동일한 환경에서 실행 가능.
+-Docker 이미지를 통해 어디서든 동일한 환경에서 실행 가능.
 
 📊 산출물
 
-추천 모델 결과: 유사 게임 Top-N 리스트
+-추천 모델 결과: 유사 게임 Top-N 리스트
 
-Airflow DAG: 데이터 수집 → 모델 학습 → 추천 추론 → 알림까지의 워크플로우
+-Airflow DAG: 데이터 수집 → 모델 학습 → 추천 추론 → 알림까지의 워크플로우
 
-로그 & 알림: DAG 실행 결과가 Slack으로 전송되어 모니터링 가능
+-로그 & 알림: DAG 실행 결과가 Slack으로 전송되어 모니터링 가능
 
-CI/CD 환경: GitHub Actions를 통한 Docker 이미지 자동 빌드 및 업로드
+-CI/CD 환경: GitHub Actions를 통한 Docker 이미지 자동 빌드 및 업로드
 
 <br>
 
@@ -55,40 +55,50 @@ CI/CD 환경: GitHub Actions를 통한 Docker 이미지 자동 빌드 및 업로
 
 | ![권문진](https://avatars.githubusercontent.com/u/156163982?v=4) | ![고민서](https://avatars.githubusercontent.com/u/156163982?v=4) | ![김동근](https://avatars.githubusercontent.com/u/156163982?v=4) | ![이수민](https://avatars.githubusercontent.com/u/156163982?v=4) | ![오패캠](https://avatars.githubusercontent.com/u/156163982?v=4) |
 | :--------------------------------------------------------------: | :--------------------------------------------------------------: | :--------------------------------------------------------------: | :--------------------------------------------------------------: | :--------------------------------------------------------------: |
-|            [허예경](https://github.com/UpstageAILab)             |            [이승호](https://github.com/UpstageAILab)             |            [최패캠](https://github.com/UpstageAILab)             |            [김패캠](https://github.com/UpstageAILab)             |            [오패캠](https://github.com/UpstageAILab)             |
+|            [권문진](https://github.com/UpstageAILab)             |            [고민서](https://github.com/UpstageAILab)             |            [김동근](https://github.com/UpstageAILab)             |            [이수민](https://github.com/UpstageAILab)             |            [허예경](https://github.com/UpstageAILab)             |
 |                            팀장, 담당 역할                             |                            담당 역할                             |                            담당 역할                             |                            담당 역할                             |                            담당 역할                             |
 
 <br>
 
 ## 🔨 개발 환경 및 기술 스택
 ⚙️ 개발환경
+
 -OS: Windows 10 + WSL2 (Ubuntu 20.04)
+
 -IDE/Editor: VS Code, Jupyter Notebook
+
 -패키지 관리: Conda / pip
+
 -컨테이너 환경: Docker Desktop (Windows), Docker Compose
+
 -워크플로우 관리: Apache Airflow (Docker 기반)
+
 -형상 관리: Git, GitHub
 
 🔧 기술 스택
+
 -주언어: Python 3.9
+
 -데이터 처리 & 분석: pandas, numpy, scikit-learn
+
 -모델링: Item-based Collaborative Filtering (콘텐츠 기반 추천)
+
 -실험 관리: Weights & Biases (W&B)
--MLOps/인프라:
--Docker (환경 일관성 보장)
--Airflow (데이터 파이프라인 자동화)
--Slack Webhook (Airflow Operator 활용 알림)
--GitHub Actions (CI/CD 자동화)
--AWS (향후 배포 고려)
+
+-MLOps/인프라:Docker (환경 일관성 보장), Airflow (데이터 파이프라인 자동화), Slack Webhook (Airflow Operator 활용 알림), GitHub Actions (CI/CD 자동화), AWS (향후 배포 고려)
 
 🤝 협업 & 이슈 관리
+
 -이슈 관리: GitHub Issues & Projects
+
 -협업 툴: Notion (작업 분배, 문서화) + GitHub (버전 관리, 코드 리뷰)
+
 -버전 관리 전략: Git Flow 일부 적용 (메인 브랜치 + 기능별 브랜치)
 
 <br>
 
 ## 📁 프로젝트 구조
+'''
 .
 ├── dags/                           # Airflow DAGs (v1 ~ v6)
 │   ├── game_recommend_mlops_v1.py  # 초기 데이터 수집 + 학습
@@ -114,8 +124,7 @@ CI/CD 환경: GitHub Actions를 통한 Docker 이미지 자동 빌드 및 업로
 ├── .gitignore                      # GitHub 업로드 제외 파일 설정
 ├── .env.example                    # 환경 변수 예시 파일
 └── README.md                       # 프로젝트 설명서
-```
-
+'''
 <br>
 
 ## 💻​ 구현 기능
