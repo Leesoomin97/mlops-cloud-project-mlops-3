@@ -27,7 +27,7 @@ MLOps_game_recommendation_project
 
 6. CI/CD: GitHub Actions + Docker Hub를 이용한 빌드 및 배포 자동화.
 
-
+<br>
 
 ### <작품 소개>
 - 이 작품은 게임 추천 서비스 프로토타입으로, 특정 유저 ID를 기준으로 새로운 게임을 추천해줍니다.
@@ -105,7 +105,8 @@ MLOps_game_recommendation_project
 
 ## 📁 프로젝트 구조
 <br>
-.```
+```
+.
 ├── Airflow/
 │   ├── dags/                           # Airflow DAGs (v1 ~ v6)
 │   │   ├── game_recommend_mlops_v1.py
@@ -170,6 +171,7 @@ MLOps_game_recommendation_project
 ├── .gitignore
 ├── .env.example
 └── README.md
+
 ```
 <br>
 
