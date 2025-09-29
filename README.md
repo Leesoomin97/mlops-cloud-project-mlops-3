@@ -113,9 +113,11 @@ MLOps_game_recommendation_project
 │    │  ├── game_recommend_mlops_v3.py  # 리소스 최적화
 │    │  ├── game_recommend_mlops_v4.py  # 자동 스케줄링 및 slack 알림 연동
 │    │  ├── game_recommend_mlops_v5.py  # 검증 + 모니터링 강화
-│    │  ├── game_recommend_mlops_v6.py  # CI/CD 반영
-│    │  └── ci-cd.yml                   # Airflow 관련 YAML 설정
+│    │  └── game_recommend_mlops_v6.py  # CI/CD 반영
+│    │  
 │    └──yaml
+│        ├── yaml                  
+│        └── ci-cd.yml                   # Airflow 관련 YAML 설정
 │
 ├── mlops/
 │   └── src/
