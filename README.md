@@ -104,7 +104,7 @@ MLOps_game_recommendation_project
 <br>
 
 ## 📁 프로젝트 구조
-<br>
+
 ```
 .
 ├── Airflow/
@@ -173,7 +173,7 @@ MLOps_game_recommendation_project
 └── README.md
 
 ```
-<br>
+
 
 
 ## 💻​ 구현 기능
