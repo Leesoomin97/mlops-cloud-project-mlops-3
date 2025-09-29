@@ -104,7 +104,7 @@ MLOps_game_recommendation_project
 <br>
 
 ## 📁 프로젝트 구조
-"""
+```
 .
 ├── dags/                           # Airflow DAGs (v1 ~ v6)
 │   ├── game_recommend_mlops_v1.py  # 초기 데이터 수집 + 학습
@@ -130,7 +130,7 @@ MLOps_game_recommendation_project
 ├── .gitignore                      # GitHub 업로드 제외 파일 설정
 ├── .env.example                    # 환경 변수 예시 파일
 └── README.md                       # 프로젝트 설명서
-"""
+```
 <br>
 
 ## 💻​ 구현 기능
@@ -144,6 +144,7 @@ MLOps_game_recommendation_project
 -데이터 전처리: Label Encoding, StandardScaler, 장르 임베딩 벡터화 진행.
 
 
+
 🔹 모델링 & 학습
 
 -추천 모델: Item-based Collaborative Filtering (Item-CF) 기반 추천.
@@ -155,6 +156,7 @@ MLOps_game_recommendation_project
 -결과 저장: 학습된 모델 아티팩트는 공유 디렉토리(/opt/mlops/models)에 저장.
 
 
+
 🔹 추론 및 결과
 
 -추천 추론: 특정 유저(user_id=12)를 입력하면 유사 게임 Top-N 추천 제공.
@@ -162,11 +164,13 @@ MLOps_game_recommendation_project
 -Airflow 통합: DAG 실행을 통해 학습 후 자동으로 추천 결과 생성.
 
 
+
 🔹 모니터링 & 알림
 
 -Slack 알림: DAG 실행 성공/실패 여부를 Slack Webhook으로 전송.
 
 -에러 핸들링: 데이터 검증 실패 또는 DockerOperator 오류 발생 시 즉시 알림.
+
 
 
 🔹 MLOps & 자동화
@@ -181,7 +185,7 @@ MLOps_game_recommendation_project
 
 ## 🚨​ 트러블 슈팅
 
-1. Airflow Web UI(8080) 접속 불가
+🔹 Airflow Web UI(8080) 접속 불가
 
 -문제: localhost:8080 접속 시 UI가 끊기거나 아예 접속 불가.
 
@@ -192,7 +196,8 @@ MLOps_game_recommendation_project
 -결과: 안정적으로 Web UI 접속 가능.
 
 
-2. Docker Host 연결 오류
+
+🔹 Docker Host 연결 오류
 
 -문제: DockerOperator 실행 시 “Docker Daemon not found” 에러.
 
@@ -203,7 +208,8 @@ MLOps_game_recommendation_project
 -결과: DAG 내 DockerOperator 정상 실행.
 
 
-3. DAG 알림 태스크 Skipped 혼동
+
+🔹 DAG 알림 태스크 Skipped 혼동
 
 -문제: DAG 성공 후에도 실패 알림 태스크가 skipped로 표시돼서 실패로 오인.
 
@@ -214,7 +220,8 @@ MLOps_game_recommendation_project
 -결과: 불필요한 코드 수정 방지.
 
 
-4. RAWG API ↔ main.py CSV 의존성 불일치
+
+🔹 RAWG API ↔ main.py CSV 의존성 불일치
 
 -문제: Airflow는 API에서 데이터를 수집했지만, Docker 컨테이너 내부 학습 코드는 CSV(Top-40 Video Games.csv) 기반.
 
@@ -223,7 +230,8 @@ MLOps_game_recommendation_project
 -결과(예정): 데이터 파이프라인 일관성 확보.
 
 
-5. Airflow 로그 출력 불가
+
+🔹 Airflow 로그 출력 불가
 
 -문제: 태스크 실행 후 Web UI에서 로그가 비어있거나 “symlink error” 경고.
 
