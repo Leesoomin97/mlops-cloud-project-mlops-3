@@ -46,9 +46,9 @@ jobs:
       # 6. Docker 이미지 빌드
       - name: Build Docker image
         run: |
-          docker build -t moongs95/third-party-mlops:${{ env.NEXT_TAG }} ./opt
+          docker build -t leesoomin/third-party-mlops:${{ env.NEXT_TAG }} ./opt
 
       # 7. Docker Hub 푸시
       - name: Push Docker image
         run: |
-          docker push moongs95/third-party-mlops:${{ env.NEXT_TAG }}
+          docker push leesoomin/third-party-mlops:${{ env.NEXT_TAG }}
